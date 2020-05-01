@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', "ActivitiesController@index")->name("home");
+Route::group(['middleware'], function () {
+    Route::post('/create', 'ActivitiesController@createActivities')->name("add-activities");
+    Route::get('/delete/{id}', 'ActivitiesController@deleteActivities')->name("delete-activities");
+    Route::post('/set-done', 'ActivitiesController@updateDoneActivities')->name("done-activities");
 });
+
