@@ -56,4 +56,12 @@ class ActivitiesController extends Controller
 
         return response()->json(["success" => true, "message" => "updated"]);
     }
+
+    public function list(Request $request)
+    {
+        $activities = Activities::whereNull('start_date')
+            ->whereNull('deleted_at')
+            ->get();
+        return response()->json($activities);
+    }
 }
