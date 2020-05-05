@@ -24,13 +24,14 @@ class ActivitiesController extends Controller
             'description' => 'required'
         ]);
 
-        $activities = new Activities();
+        $activities = new Activities;
         $activities->code = str_random(4);
         $activities->name = $submit['title'];
         $activities->description = $submit['description'];
         $activities->type = "active";
         $activities->save();
 
+//        INSERT into acativities set('code', 'name', 'description') values ('a', 'b', 'c');
         return redirect(route('home'))->with('new_token', csrf_token());
     }
 
