@@ -26,9 +26,9 @@
         <div class="container">
             @if($errors->any())
                 @foreach($errors->all() as $error)
-                    <div class="alert alert-danger alert-dismissible" role="alert">
+                    <itdiv class="alert alert-danger alert-dismissible" role="alert">
                         {{ $error }}
-                    </div>
+                    </it div>
                 @endforeach
             @endif
             <div class="row">
