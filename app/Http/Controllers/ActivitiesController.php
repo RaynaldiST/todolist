@@ -48,6 +48,7 @@ class ActivitiesController extends Controller
         return redirect(route('home'))->with('new_token', csrf_token());
     }
 
+// return json
     public function updateDoneActivities(Request $request)
     {
         $data = $request->all();
@@ -65,4 +66,5 @@ class ActivitiesController extends Controller
             ->get();
         return response()->json($activities);
     }
+//    return json
 }
