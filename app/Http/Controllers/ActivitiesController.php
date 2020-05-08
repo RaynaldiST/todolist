@@ -24,7 +24,8 @@ class ActivitiesController extends Controller
             'description' => 'required'
         ]);
 
-//        Command
+
+//        Command 2
         $activities = new Activities;
         $activities->code = str_random(4);
         $activities->name = $submit['title'];
