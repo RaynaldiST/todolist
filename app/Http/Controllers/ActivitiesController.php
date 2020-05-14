@@ -64,9 +64,20 @@ class ActivitiesController extends Controller
     public function list(Request $request)
     {
         $activities = Activities::whereNull('start_date')
+            ->whereType('active')
             ->whereNull('deleted_at')
             ->get();
         return response()->json($activities);
     }
+
 //    return json
+
+    public function getNotes(Request $request, $id)
+    {
+        $activities = Activities::findOrFail($id);
+        return response()->json([
+            "success" => true,
+            "data" => $activities
+        ]);
+    }
 }
